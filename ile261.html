@@ -455,6 +455,100 @@
       align-items: center;
       justify-content: center;
     }
+     /* Avatar container */
+.avatar-container {
+    text-align:center;
+    position: relative;
+}
+
+.avatar {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: float 4s ease-in-out infinite;
+    transition: 0.3s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    cursor: pointer;
+    border: 4px solid #00f0ff;
+    display: block; 
+    margin: 0 auto;
+}
+
+.avatar img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* floating animation */
+@keyframes float {
+    0% { transform: translateY(0px);}
+    50% { transform: translateY(-12px);}
+    100% { transform: translateY(0px);}
+}
+
+/* speech bubble */
+.speech {
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform:translateX(-50%);
+    color:var(--black);
+    background:white;
+    padding:10px 15px;
+    border-radius:15px;
+    font-size:14px;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* show speech on hover */
+.avatar-container:hover .speech{
+    display:block;
+}
+.avatar:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 25px #00f0ff;
+}
+
+/* waving hand */
+.wave {
+    position:absolute;
+    right:-10px;
+    top:-10px;
+    font-size:28px;
+    animation: wave 2s infinite;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(20deg);}
+    50% { transform: rotate(-10deg);}
+    75% { transform: rotate(20deg);}
+    100% { transform: rotate(0deg);}
+}
+/* text side */
+.about-text{
+    max-width:500px;
+    color:white;
+}
+
+.about-text h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.about-text p{
+    line-height:1.7;
+    color:#cbd5e1;
+}
+.name {
+    color:white;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:bold;
+}
     .about-photo-placeholder span {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 8rem;
@@ -891,8 +985,7 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-photo">
-    <!-- Replace src with your actual photo -->
-    <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=900&q=80" alt="Mr. Ikraam"/>
+    <img src="image/avatar.jpg" alt="Mr. Ikraam Sadek"/>
     <div class="hero-photo-overlay"></div>
   </div>
   <div class="hero-content">
@@ -933,44 +1026,69 @@
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
+
+      <!-- LEFT SIDE (Avatar) -->
       <div class="about-photo-wrap reveal">
-        <!-- Replace with actual portrait photo -->
-        <div class="about-photo-placeholder">
-          <span>AM</span>
+
+        <div class="avatar-container">
+
+          <div class="speech">Hello students 👋</div>
+
+          <div class="avatar">
+            <img src="image/avatar.jpg" alt="Dr Ikraam Sadek">
+          </div>
+
+          <div class="wave">👋</div>
+
+          <div class="name">Dr Ikraam Sadek</div>
+
         </div>
+
       </div>
+
+      <!-- RIGHT SIDE (Text) -->
       <div class="about-text">
         <div class="section-label reveal">About</div>
-        <h2 class="section-title reveal reveal-delay-1">Dr. Ikraam<br><span>Sadek</span></h2>
-        <p style="color:var(--muted);line-height:1.9;margin-bottom:20px;font-weight:300;" class="reveal reveal-delay-2">
-          lecturer in the Department of Computer Science, specialising in educating students at BelgiumCampus, Artificial Intelligence, and Digital Education. With over 15 years in academia, <Mr class="sadek">Mr. Sadek</Mr> bridges theoretical research and real-world application.
-        </p>
-        <p style="color:var(--muted);line-height:1.9;margin-bottom:36px;font-weight:300;" class="reveal reveal-delay-3">
-          A passionate educator committed to transformative learning environments — in the classroom, in the lab, and in the community.
+        <h2 class="section-title reveal reveal-delay-1">
+          Dr. Ikraam<br><span>Sadek</span>
+        </h2>
 
+        <p class="reveal reveal-delay-2">
+          Lecturer in the Department of Computer Science, specialising in Artificial Intelligence and Digital Education. With over 15 years in academia, Dr. Sadek bridges theoretical research and real-world application.
         </p>
+
+        <p class="reveal reveal-delay-3">
+          A passionate educator committed to transformative learning environments — in the classroom, in the lab, and in the community.
+        </p>
+
         <div class="about-stats reveal reveal-delay-4">
           <div class="stat-card">
             <div class="stat-num">15+</div>
             <div class="stat-label">Years Teaching</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-num">48</div>
             <div class="stat-label">Publications</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-num">6</div>
             <div class="stat-label">Research Grants</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-num">320+</div>
             <div class="stat-label">Students Supervised</div>
           </div>
         </div>
+
       </div>
+
     </div>
   </div>
 </section>
+ 
  
 <!-- ========== SERVICES (TEACHING) ========== -->
 <section id="services">
